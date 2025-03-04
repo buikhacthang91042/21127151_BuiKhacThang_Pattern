@@ -7,27 +7,27 @@ public class SingletonTest {
         EagerInitializedSingleton singleton = EagerInitializedSingleton.getInstance();
         System.out.println(singleton);
 
-        EagerInitializedSingleton singleton2 = EagerInitializedSingleton.getInstance();
-        System.out.println(singleton2);
-
-        System.out.println("Are both EagerInitializedSingleton instances same? " + (singleton == singleton2));
-
         // StaticBlockSingleton
-        StaticBlockSingleton singleton1 = StaticBlockSingleton.getInstance();
-        System.out.println(singleton1);
+        StaticBlockSingleton staticSingleton1 = StaticBlockSingleton.getInstance();
+        System.out.println(staticSingleton1);
 
-        StaticBlockSingleton singleton3 = StaticBlockSingleton.getInstance();
-        System.out.println(singleton3);
-
-        System.out.println("Are both StaticBlockSingleton instances same? " + (singleton1 == singleton3));
-        
         // LazyInitializedSingleton
         LazyInitializedSingleton lazySingleton1 = LazyInitializedSingleton.getInstance();
         System.out.println(lazySingleton1);
 
-        LazyInitializedSingleton lazySingleton2 = LazyInitializedSingleton.getInstance();
-        System.out.println(lazySingleton2);
+        // ThreadSafeSingleton (synchronized method)
+        ThreadSafeSingleton threadSafeSingleton1 = ThreadSafeSingleton.getInstance();
+        System.out.println(threadSafeSingleton1);
 
-        System.out.println("Are both LazyInitializedSingleton instances same? " + (lazySingleton1 == lazySingleton2));
+        ThreadSafeSingleton threadSafeSingleton2 = ThreadSafeSingleton.getInstance();
+        System.out.println(threadSafeSingleton2);
+
+        System.out.println("Are both ThreadSafeSingleton instances same? " + (threadSafeSingleton1 == threadSafeSingleton2));
+
+        // ThreadSafeSingleton using double checked locking
+        ThreadSafeSingleton threadSafeSingleton3 = ThreadSafeSingleton.getInstanceUsingDoubleLocking();
+        System.out.println(threadSafeSingleton3);
+
+        System.out.println("Are both ThreadSafeSingleton (double checked locking) instances same? " + (threadSafeSingleton1 == threadSafeSingleton3));
     }
 }
