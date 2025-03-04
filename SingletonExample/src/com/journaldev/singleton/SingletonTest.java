@@ -29,5 +29,15 @@ public class SingletonTest {
         System.out.println(threadSafeSingleton3);
 
         System.out.println("Are both ThreadSafeSingleton (double checked locking) instances same? " + (threadSafeSingleton1 == threadSafeSingleton3));
+    
+
+        // Bill Pugh Singleton
+        BillPughSingletonImplementation billPughSingleton1 = BillPughSingletonImplementation.getInstance();
+        System.out.println(billPughSingleton1);
+
+        BillPughSingletonImplementation billPughSingleton2 = BillPughSingletonImplementation.getInstance();
+        System.out.println(billPughSingleton2);
+
+        System.out.println("Are both BillPughSingleton instances same? " + (billPughSingleton1 == billPughSingleton2));
     }
 }
