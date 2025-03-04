@@ -20,5 +20,14 @@ public class SingletonTest {
         System.out.println(singleton3);
 
         System.out.println("Are both StaticBlockSingleton instances same? " + (singleton1 == singleton3));
+        
+        // LazyInitializedSingleton
+        LazyInitializedSingleton lazySingleton1 = LazyInitializedSingleton.getInstance();
+        System.out.println(lazySingleton1);
+
+        LazyInitializedSingleton lazySingleton2 = LazyInitializedSingleton.getInstance();
+        System.out.println(lazySingleton2);
+
+        System.out.println("Are both LazyInitializedSingleton instances same? " + (lazySingleton1 == lazySingleton2));
     }
 }
